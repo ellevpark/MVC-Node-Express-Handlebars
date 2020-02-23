@@ -1,0 +1,60 @@
+<header> 
+<h1>Hungry for Burgers</h1>
+</header>
+<div class= "container">
+
+  <div class= "row">
+    <div class= "col">
+      <h2>Burgers to eat!</h2>
+        <ul>
+          {{#each burgers}}
+            {{#unless devoured}}
+              <li>
+                {{burger_name}}
+                <button class="change-devoured btn btn btn-outline-info" data-id="{{id}}" data-newState="{{devoured}}">
+                  EAT
+                </button>
+              </li>
+            {{/unless}}
+          {{/each}}
+        </ul>
+   </div>
+   <div class= "col">
+     <img style="width: 20em; height: 20em; padding: 20px" src="http://www.pngplay.com/wp-content/uploads/2/Burger-Transparent-Background.png" alt="picture of burger">
+
+   </div>
+
+    <div class= "col">
+      <h2>Burgers eaten!</h2>
+        <ul>
+          {{#each burgers}}
+            {{#if devoured}}
+              <li>
+                {{burger_name}}
+                <button type="button" class="delete-burger btn btn btn-outline-info" data-id="{{this.id}}">DELETE</button>
+
+              </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+    </div>
+  </div>
+
+<div class= "row">
+  <div class="container add">
+  <h2>Add a Burger</h2>
+    <form class="create-form">
+
+      <div class="form-group">
+        <label for="burger">Burger Name:</label>
+       <input type="text" id="burger" name="name">
+      </div>
+    
+      <button type="submit" class= "btn btn btn-outline-info">Add Burger</button>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+
